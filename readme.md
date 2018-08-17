@@ -3,5 +3,6 @@
 <br/>
 <p>1. Download from Git.</p>
 <p>2.1. .env.example => .env</p>
-<p>2.2. php artisan key:generate</p>
-<p>2.3. composer require guzzlehttp/guzzle</p>
+<p>2.2. composer install</p>
+<p>2.3. php artisan key:generate</p>
+<p>2.4. composer require guzzlehttp/guzzle</p>
