@@ -17,5 +17,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/deal', 'CardsCotnroller@deal');
-Route::get('/shuffle', 'CardsCotnroller@shuffle');
+// API routes to Deckofcardsapi
+Route::get('/shuffle', 'CardsCotnroller@shuffle'); // new deck
+Route::get('/deal', 'CardsCotnroller@deal'); // deal card

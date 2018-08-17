@@ -80,6 +80,7 @@ function newDeal() {
             $('.lds-dual-ring-wrap').hide();
 
             if (dataDeck.success === true) {
+                // new deck data
                 game.status = 'NEW';
                 game.deckId = dataDeck.deck_id;
                 game.remaining = dataDeck.remaining;
@@ -87,6 +88,7 @@ function newDeal() {
 
                 start.hide();
 
+                // deal first card
                 $.ajax({
                     url: '/api/shuffle',
                     type: 'get',
@@ -106,11 +108,18 @@ function newDeal() {
                         $('.lds-dual-ring-wrap').hide();
 
                         if (dataDeckShuffled.success === true) {
+                            // game card
                             game.deckId = dataDeckShuffled.deck_id;
                             game.remaining = dataDeckShuffled.remaining;
                             game.drawn = dataDeckShuffled.cards[0].value;
 
+                            // dealed card to compare
                             dealer.drawn = dataDeckShuffled.cards[0].value;
+
+                            console.log('dealCard game.drawn = ' + game.drawn);
+                            console.log('dealCard dealer.drawn = ' + dealer.drawn);
+                            console.log('dealCard cards = ' + cards[dealer.drawn]);
+
 
                             $('.cards__img').attr('src', dataDeckShuffled.cards[0].image);
                             $('#remain').text('You have ' + game.remaining + ' cards remaining!');
@@ -127,15 +136,13 @@ function newDeal() {
                 });
 
                 state.on('click', function() {
+                    // players choice
                     let guess = $(this).attr('class').split(' ')[0].toLowerCase();
-
-                    game.status = 'STARTED';
                     choice.text(messages[guess]);
-
                     game.player = guess;
 
+                    // next card
                     dealCard(game.deckId);
-                    //obtainStatus();
                 });
 
                 state.show();
@@ -173,6 +180,7 @@ function dealCard(deckId) {
             $('.lds-dual-ring-wrap').hide();
 
             if (dataDeckShuffled.success === true) {
+                // Game cards
                 game.deckId = dataDeckShuffled.deck_id;
                 game.remaining = dataDeckShuffled.remaining;
                 game.drawn = dataDeckShuffled.cards[0].value;
@@ -183,6 +191,7 @@ function dealCard(deckId) {
 
                 checkResult();
 
+                // Dealed card to comapre
                 dealer.drawn = dataDeckShuffled.cards[0].value;
                 console.log('dealCard game.drawn = ' + game.drawn);
             } else {
@@ -199,6 +208,7 @@ function dealCard(deckId) {
 }
 
 function checkResult() {
+    // Cards reamin in deck
     remain.text(messages.remaining);
 
     console.log('dealer.drawn = ' + dealer.drawn);
@@ -206,13 +216,13 @@ function checkResult() {
     console.log('game.player = ' + game.player);
 
     if (game.remaining === 0) {
-        game.status = 'WIN';
+        // Game won;
         result.text(messages.win);
-    } else if ( (dealer.drawn < game.drawn && game.player === 'higher') || (dealer.drawn > game.drawn && game.player === 'lower') || (dealer.drawn == game.drawn && game.player === 'same') ) {
-        game.status = 'CORRECT';
+    } else if ( (cards[dealer.drawn] < cards[game.drawn] && game.player === 'higher') || (cards[dealer.drawn] > cards[game.drawn] && game.player === 'lower') || (cards[dealer.drawn] == cards[game.drawn]&& game.player === 'same') ) {
+        // Game is in process
         result.text(messages.correct);
     } else {
-        game.status = 'LOSE';
+        // Game lost, starting new game
         result.text(messages.incorrect);
         remain.text(messages.restart);
         state.hide();

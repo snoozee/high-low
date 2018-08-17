@@ -25,6 +25,7 @@
                 <p id="remain" class="cards__text"></p>
             </div>
 
+            {{-- Control buttons --}}
             <div id="controls" class="controls">
                 <button id="start" class="start">Start Game</button>
                 <button class="lower state controls__btn">Lower</button>
