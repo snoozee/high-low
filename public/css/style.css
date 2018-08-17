@@ -1,0 +1,70 @@
+/*base*/
+html {
+    font-family: 'Cardo', serif;
+}
+/*details*/
+.game {
+    width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #E0E0E0;
+    text-align: center;
+}
+.cards {
+    height: 350px;
+    background-color: #61D8A2;
+}
+.cards__img {
+    padding-top: 20px;
+    width: 150px;
+    height: 208px;
+}
+.cards__text {
+
+}
+.controls {
+    border-top: 1px solid #E0E0E0;
+    padding: 20px 0 0;
+}
+.controls__btn {
+    display: none;
+    font-family: 'Cardo', serif;
+}
+
+
+/*---Loader styles ---*/
+.lds-dual-ring-wrap {
+    display: none;
+    position: absolute;
+    background-color: #ccc;
+    opacity: 0.3;
+    width: 100%;
+    height: 100%;
+}
+.lds-dual-ring {
+    position: relative;
+    display: inline-block;
+    width: 64px;
+    height: 64px;
+    top: 20%;
+    left: 49%;
+}
+.lds-dual-ring:after {
+    content: " ";
+    display: block;
+    width: 46px;
+    height: 46px;
+    margin: 1px;
+    border-radius: 50%;
+    border: 5px solid #00733E;
+    border-color: #00733E transparent #00733E transparent;
+    animation: lds-dual-ring 1.2s linear infinite;
+}
+@keyframes lds-dual-ring {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
