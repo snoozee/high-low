@@ -22,3 +22,5 @@
    </ul>
   <li><b>Controller</b> - app/Http/Controllers/CardsCotnroller.php - recieving and operating Deckofcardsapi data</li>
 </ul>
+
+<h2>If for some reason files are not pulled up - change the path without /public</h2>
