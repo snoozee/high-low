@@ -46,15 +46,15 @@ var cards = {
 
 //messages
 var messages = {
-    start: 'Please choose lower or higher!',
-    remaining: 'You have ' + game.remaining + ' cards remaining!',
-    lower: 'You chose Lower!',
-    same: 'You chose Same!',
-    higher: 'You chose Higher!',
+    start: 'Please choose lower higher or same!',
+    remaining: game.remaining + ' cards remaining!',
+    lower: 'Your choice is Lower!',
+    same: 'Your choice is Same!',
+    higher: 'Your choice is Higher!',
     win: 'You have won!',
-    correct: 'You are correct!',
-    incorrect: 'You are incorrect, please start again!',
-    restart: 'Please press "New Game" button',
+    correct: 'And you are right!',
+    incorrect: 'Oops ... wrong choice, try one more time!',
+    restart: 'Click "New Game" button for another try',
 };
 
 start.on('click', function(){
