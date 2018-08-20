@@ -150,6 +150,7 @@ function newDeal() {
     });
 }
 
+// Choosing next card
 state.on('click', function() {
     console.log('click');
     // players choice
