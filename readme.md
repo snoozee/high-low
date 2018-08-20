@@ -7,6 +7,7 @@
   <li>composer install</li>
   <li>php artisan key:generate</li>
   <li>composer require guzzlehttp/guzzle</li>
+  <li>start server: php artisan serve</li>
 </ol>
 
 <h2>Files</h2>
@@ -23,4 +24,4 @@
   <li><b>Controller</b> - app/Http/Controllers/CardsCotnroller.php - recieving and operating Deckofcardsapi data</li>
 </ul>
 
-<h2>If for some reason files are not pulled up - change the path without /public</h2>
+<h2>If for some reason files are not pulled up - chek the path. Add /public</h2>
