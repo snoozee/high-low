@@ -3,8 +3,8 @@
     <head>
         <title>Higher, Lower or Same?</title>
         <link href='http://fonts.googleapis.com/css?family=Cardo' rel='stylesheet' type='text/css'>
-        <link rel="stylesheet" type="text/css" href="/public/css/app.css">
-        <link rel="stylesheet" type="text/css" href="/public/css/style.css">
+        <link rel="stylesheet" type="text/css" href="/css/app.css">
+        <link rel="stylesheet" type="text/css" href="/css/style.css">
         <link rel="shortcut icon" href="https://deckofcardsapi.com/static/img/favicon/favicon.ico">
 
         {{-- crsf_token --}}
@@ -19,7 +19,7 @@
         {{-- Cards desk --}}
         <div class="game">
             <div id="cards" class="cards">
-                <img id="player" class="cards__img" src="/public/images/blank.jpg">
+                <img id="player" class="cards__img" src="/images/blank.jpg">
                 <p id="choice" class="cards__text"></p>
                 <p id="result" class="cards__text"></p>
                 <p id="remain" class="cards__text"></p>
@@ -36,6 +36,6 @@
         </div>
 
         <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-        <script src="/public/js/script.js"></script>
+        <script src="/js/script.js"></script>
     </body>
 </html>

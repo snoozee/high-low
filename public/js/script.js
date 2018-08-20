@@ -116,9 +116,9 @@ function newDeal() {
                             // dealed card to compare
                             dealer.drawn = dataDeckShuffled.cards[0].value;
 
-                            console.log('dealCard game.drawn = ' + game.drawn);
+                            /*console.log('dealCard game.drawn = ' + game.drawn);
                             console.log('dealCard dealer.drawn = ' + dealer.drawn);
-                            console.log('dealCard cards = ' + cards[dealer.drawn]);
+                            console.log('dealCard cards = ' + cards[dealer.drawn]);*/
 
 
                             $('.cards__img').attr('src', dataDeckShuffled.cards[0].image);
@@ -135,16 +135,6 @@ function newDeal() {
                     }
                 });
 
-                state.on('click', function() {
-                    // players choice
-                    let guess = $(this).attr('class').split(' ')[0].toLowerCase();
-                    choice.text(messages[guess]);
-                    game.player = guess;
-
-                    // next card
-                    dealCard(game.deckId);
-                });
-
                 state.show();
                 restart.show();
             } else {
@@ -159,6 +149,17 @@ function newDeal() {
         }
     });
 }
+
+state.on('click', function() {
+    console.log('click');
+    // players choice
+    let guess = $(this).attr('class').split(' ')[0].toLowerCase();
+    choice.text(messages[guess]);
+    game.player = guess;
+
+    // next card
+    dealCard(game.deckId);
+});
 
 function dealCard(deckId) {
     $.ajax({
@@ -184,16 +185,16 @@ function dealCard(deckId) {
                 game.deckId = dataDeckShuffled.deck_id;
                 game.remaining = dataDeckShuffled.remaining;
                 game.drawn = dataDeckShuffled.cards[0].value;
-                game.status = 'SELECTED';
 
                 $('.cards__img').attr('src', dataDeckShuffled.cards[0].image);
                 $('#remain').text('You have ' + game.remaining + ' cards remaining!');
 
+                console.log('checkResult()');
                 checkResult();
 
                 // Dealed card to comapre
                 dealer.drawn = dataDeckShuffled.cards[0].value;
-                console.log('dealCard game.drawn = ' + game.drawn);
+                //console.log('dealCard game.drawn 196 = ' + game.drawn);
             } else {
                 alert ('Ooooooops... Shuffling failed');
                 location.reload();
@@ -234,7 +235,7 @@ restart.on('click', function(){
     dealer.draw = '';
 
     //clear/hide elements
-    player.attr('src', '/public/images/blank.jpg');
+    player.attr('src', '/images/blank.jpg');
     result.text('');
     choice.text('');
     remain.text('New game started');
